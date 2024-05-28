@@ -1,45 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
     public int speed = 5;
     Rigidbody2D rigidbody2d;
+    Animator animator;
+    float verticalAxis;
+    float horizontalAxis;
+    SpriteRenderer sprite;
+
+    public Vector2 movement;
     // Start is called before the first frame update
 
     void Start()
     {
       rigidbody2d = GetComponent<Rigidbody2D>();
+      animator = GetComponent<Animator>();
+      sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
+        
+        
+
+         movement = new Vector2(horizontalAxis, verticalAxis);
+        rigidbody2d.MovePosition(rigidbody2d.position + (speed * Time.deltaTime * movement.normalized));
+
+
+
+
+
+
+
+    }
+
+    private void Update()
+    {   
+        
+        horizontalAxis = Input.GetAxis("Horizontal");
+        verticalAxis = Input.GetAxis("Vertical");
+        //Debug.Log("Eje X: " + horizontalAxis + ", Eje Y: " + verticalAxis);
+        float run = horizontalAxis + verticalAxis;
+        animator.SetFloat("Run",math.abs(run));
+
+        if (sprite.flipX == false && movement.x < 0)
         {
-            rigidbody2d.MovePosition(rigidbody2d.position + (Vector2.up * speed * Time.deltaTime));
+            sprite.flipX = true;
         }
-
-        if (Input.GetKey(KeyCode.A))
+        else if (sprite.flipX == true && movement.x > 0)
         {
-            rigidbody2d.MovePosition(rigidbody2d.position + (Vector2.left * speed * Time.deltaTime));
+            sprite.flipX = false;
         }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            rigidbody2d.MovePosition(rigidbody2d.position + (Vector2.right * speed * Time.deltaTime));
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            rigidbody2d.MovePosition(rigidbody2d.position + (Vector2.down * speed * Time.deltaTime));
-        }
-
-
-
-
-
 
 
     }
