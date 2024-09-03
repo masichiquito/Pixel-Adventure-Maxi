@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -26,23 +25,13 @@ public class Movimiento : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        
-
          movement = new Vector2(horizontalAxis, verticalAxis);
         rigidbody2d.MovePosition(rigidbody2d.position + (speed * Time.deltaTime * movement.normalized));
-
-
-
-
-
-
-
     }
 
     private void Update()
-    {   
-        
+    {
+        Run();
         horizontalAxis = Input.GetAxis("Horizontal");
         verticalAxis = Input.GetAxis("Vertical");
         //Debug.Log("Eje X: " + horizontalAxis + ", Eje Y: " + verticalAxis);
@@ -57,7 +46,21 @@ public class Movimiento : MonoBehaviour
         {
             sprite.flipX = false;
         }
-
-
     }
+
+    void Run()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 10;
+
+        }
+        else
+        {
+            speed = 5;
+            
+        }
+    }
+
+        
 }
