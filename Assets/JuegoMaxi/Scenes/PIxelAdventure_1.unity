@@ -434,12 +434,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 950443042}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: Restart
-        m_Mode: 1
+        m_MethodName: Level
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -965,7 +965,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 950443042}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: Continue
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1103,12 +1103,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 950443042}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: Exit
-        m_Mode: 1
+        m_MethodName: Level
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1313,6 +1313,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605880462}
   m_CullTransparentMesh: 1
+--- !u!1 &629532145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7256522359538308870, guid: 7088e10299f83854992c65d2884a6e0e, type: 3}
+  m_PrefabInstance: {fileID: 7256522360142616844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &629532146
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629532145}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &644184250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3249,8 +3350,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 950443042}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: Exit
-        m_Mode: 1
+        m_MethodName: Level
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8568,6 +8669,7 @@ GameObject:
   - component: {fileID: 950443044}
   - component: {fileID: 950443043}
   - component: {fileID: 950443042}
+  - component: {fileID: 950443047}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -8591,6 +8693,10 @@ MonoBehaviour:
   gameOverPanel: {fileID: 935086063}
   youWinPanel: {fileID: 1543108027}
   pausePanel: {fileID: 1167544065}
+  audioSource: {fileID: 950443047}
+  audioClipButton: {fileID: 8300000, guid: c4d0cdb3bcd30c14c89a06229617687c, type: 3}
+  audioClipWin: {fileID: 8300000, guid: 84e34fd0882182e42a9cce13aef64022, type: 3}
+  audioClipGameOver: {fileID: 8300000, guid: 5e92b0267be99544880c78129c70e73e, type: 3}
 --- !u!114 &950443043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8675,6 +8781,102 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!82 &950443047
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950443041}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1ca9a67ce664c6841ba0cfe1cd94c433, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.16
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &964925718
 GameObject:
   m_ObjectHideFlags: 0
@@ -10974,8 +11176,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 950443042}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: Exit
-        m_Mode: 1
+        m_MethodName: Level
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11440,9 +11642,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1497949550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d486b04933e7504e865058e0a92e452, type: 3}
+  m_Script: {fileID: 11500000, guid: 88322355fea35664280183fb91245e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  breakBox: []
+  breakSpeed: 1
+  isMetalBox: 0
 --- !u!61 &1497949554
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11996,12 +12201,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 950443042}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: Restart
-        m_Mode: 1
+        m_MethodName: Level
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12388,6 +12593,18 @@ PrefabInstance:
       propertyPath: health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7256522359538308892, guid: 7088e10299f83854992c65d2884a6e0e, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 629532146}
+    - target: {fileID: 7256522359538308892, guid: 7088e10299f83854992c65d2884a6e0e, type: 3}
+      propertyPath: audioClipDmg
+      value: 
+      objectReference: {fileID: 8300000, guid: 6bf81f236df72d147a0aeb813140707b, type: 3}
+    - target: {fileID: 7256522359538308892, guid: 7088e10299f83854992c65d2884a6e0e, type: 3}
+      propertyPath: audioClipEat
+      value: 
+      objectReference: {fileID: 8300000, guid: 943d1177f5278ec4eb971c5e3faba9aa, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7088e10299f83854992c65d2884a6e0e, type: 3}
 --- !u!1001 &8639903822685235926

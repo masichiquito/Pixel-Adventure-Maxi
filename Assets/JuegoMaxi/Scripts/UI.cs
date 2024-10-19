@@ -10,9 +10,13 @@ public class UI : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject youWinPanel;
     public GameObject pausePanel;
+    public AudioSource audioSource;
+    public AudioClip audioClipButton;
+    public AudioClip audioClipWin;
+    public AudioClip audioClipGameOver;
     void Start()
     {
-        gameOverPanel.SetActive(false); 
+        gameOverPanel.SetActive(false);
     }
 
     public void SetSliderValuer(int health)
@@ -24,12 +28,13 @@ public class UI : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+        audioSource.PlayOneShot(audioClipGameOver);
     }
     public void Restart()
     {
-        SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
-    public void Continue()
+    public void Resume()
     {
         pausePanel.SetActive(false);
         ResumeGame();
@@ -37,19 +42,33 @@ public class UI : MonoBehaviour
 
     public void Exit()
     {
+        PlayButtonSound();
         Application.Quit();
         Debug.Log("Application.Quit");
-
     }
+
+    public void PlayButtonSound()
+    {
+        audioSource.PlayOneShot(audioClipButton);
+    }
+
 
     public void PauseGame()
     {
         Time.timeScale = 0;
+        pausePanel.SetActive(true);
     }
     public void ResumeGame()
     {
         Time.timeScale = 1;
     }
+
+    public void Level(int level)
+    {
+        PlayButtonSound();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(level);
+    }
+
 
 
 
@@ -57,7 +76,6 @@ public class UI : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            pausePanel.SetActive(true);
             PauseGame();
         }
 
@@ -74,5 +92,6 @@ public class UI : MonoBehaviour
     public void Win()
     {
         youWinPanel.SetActive(true);
+        audioSource.PlayOneShot(audioClipWin);
     }
 }

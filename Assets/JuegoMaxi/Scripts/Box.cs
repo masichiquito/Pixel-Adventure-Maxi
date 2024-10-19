@@ -4,22 +4,44 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject[] breakBox;
+    private GameObject partBreakBox;
+    public float breakSpeed = 1f;
+    public bool isMetalBox = false;
+
     private void OnCollisionEnter2D(Collision2D collision)
-    {// si (colisionador2D que entró esta vacio?)
-        if (collision != null)
+    {
+        //if (collision != null && collision.gameObject.CompareTag("Player"))
+        if (collision != null && collision.gameObject.CompareTag("EnemyBoss"))
         {
-            Debug.Log("algo Colisionó");
+            DestroyBoxParts();
+
+            if (isMetalBox)
+                collision.collider.GetComponent<HeadRock>().Damage();
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void DestroyBoxParts()
     {
-        
+        for (int i = 0; i < breakBox.Length; i++)
+        {
+            Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+            partBreakBox = Instantiate(breakBox[i], transform.position, rotation);
+            partBreakBox.GetComponent<Rigidbody2D>().AddForce((Random.insideUnitCircle * breakSpeed), ForceMode2D.Impulse);
+        }
+        Destroy(this.gameObject);
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision != null)
+        {
+            //Debug.Log("Algo esta en colisionando");
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+       
+    }
+
 }

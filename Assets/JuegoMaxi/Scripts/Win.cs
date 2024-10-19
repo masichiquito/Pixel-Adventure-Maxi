@@ -22,7 +22,7 @@ public class Win : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     // Update is called once per frame

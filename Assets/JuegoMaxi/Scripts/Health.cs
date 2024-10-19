@@ -11,6 +11,9 @@ public class Health : MonoBehaviour
     public CapsuleCollider2D capsuleCollider2D;
     public Movimiento movimiento;
     public UI ui;
+    public AudioSource audioSource;
+    public AudioClip audioClipDmg;
+    public AudioClip audioClipEat;
     
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,7 @@ public class Health : MonoBehaviour
     {
         animator.SetTrigger("Damage");
         health = health - damageQuantity;
+        audioSource.PlayOneShot(audioClipDmg);
         if (health <= 0)
         {
             health = 0;
@@ -45,6 +49,8 @@ public class Health : MonoBehaviour
     public void Heal(int healQuantity)
     {
         health = health + healQuantity;
+        audioSource.PlayOneShot(audioClipEat);
+
         //animator.SetTrigger("Heal");
         if (health > 100)
         {
