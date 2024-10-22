@@ -19,7 +19,7 @@ public class Spikes : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider != null)
+        if (collider != null && collider2D.gameObject.tag == "Player")
         {
            
             Debug.Log("Ouch, *-10 de vida*");
