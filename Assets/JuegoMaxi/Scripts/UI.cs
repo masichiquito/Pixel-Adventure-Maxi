@@ -66,7 +66,9 @@ public class UI : MonoBehaviour
     public void Level(int level)
     {
         PlayButtonSound();
+        Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(level);
+        
     }
 
 
@@ -93,5 +95,7 @@ public class UI : MonoBehaviour
     {
         youWinPanel.SetActive(true);
         audioSource.PlayOneShot(audioClipWin);
+        Time.timeScale = 0;
+
     }
 }

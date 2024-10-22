@@ -244,8 +244,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 950443042}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: Exit
-        m_Mode: 1
+        m_MethodName: Level
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -439,7 +439,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -966,7 +966,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 950443042}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: Continue
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1348,6 +1348,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8639903822517689365, guid: 221689178d172264f8f3c4a730bfae02, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8639903822517689367, guid: 221689178d172264f8f3c4a730bfae02, type: 3}
       propertyPath: m_Name
       value: Headrock 5
@@ -1704,7 +1708,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 623, y: -332}
+  m_AnchoredPosition: {x: 438, y: -296}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &767735410
@@ -10884,7 +10888,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020912021, y: -0.08190536}
+  m_Offset: {x: 0.0016738623, y: 0.018117607}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10895,7 +10899,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.123584, y: 0.3431599}
+  m_Size: {x: 0.5946597, y: 0.54320586}
   m_EdgeRadius: 0
 --- !u!212 &1215637078
 SpriteRenderer:
@@ -12147,7 +12151,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
