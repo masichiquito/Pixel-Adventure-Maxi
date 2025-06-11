@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -11,32 +9,38 @@ public class Movimiento : MonoBehaviour
     float verticalAxis;
     float horizontalAxis;
     SpriteRenderer sprite;
+    public bool powerKick = false;
 
     public Vector2 movement;
     // Start is called before the first frame update
 
     void Start()
     {
-      rigidbody2d = GetComponent<Rigidbody2D>();
-      animator = GetComponent<Animator>();
-      sprite = GetComponent<SpriteRenderer>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-         movement = new Vector2(horizontalAxis, verticalAxis);
+        movement = new Vector2(horizontalAxis, verticalAxis);
         rigidbody2d.MovePosition(rigidbody2d.position + (speed * Time.deltaTime * movement.normalized));
     }
 
     private void Update()
     {
+        if (powerKick)
+        {
+            Kick();
+        }
         Run();
         horizontalAxis = Input.GetAxis("Horizontal");
         verticalAxis = Input.GetAxis("Vertical");
         //Debug.Log("Eje X: " + horizontalAxis + ", Eje Y: " + verticalAxis);
         float run = horizontalAxis + verticalAxis;
-        animator.SetFloat("Run",math.abs(run));
+        animator.SetFloat("Run", math.abs(run));
 
         if (sprite.flipX == false && movement.x < 0)
         {
@@ -58,9 +62,16 @@ public class Movimiento : MonoBehaviour
         else
         {
             speed = 5;
-            
+
         }
     }
 
-        
+    private void Kick()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            animator.SetTrigger("Kick");
+        }
+    }
+
 }
